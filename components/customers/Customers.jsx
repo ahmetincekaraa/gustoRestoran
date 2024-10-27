@@ -13,7 +13,7 @@ const Customers = () => {
   }
   
   return (
-    <div className='container mx-auto my-20'>
+    <div className='container mx-auto mt-10 mb-20'>
       <Title addClass="text-[40px] text-center">What Says Our Customers</Title>
         
         <section className="main-slider flex">  

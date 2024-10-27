@@ -30,20 +30,20 @@ const Footer = () => {
           Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
           </p>
           <div className="flex justify-center mt-5 gap-x-2 ">
-              <a href="" className="w-7 h-7 grid place-content-center bg-white text-secondary rounded-full hover:text-primary ">
-                <i className="fab fa-facebook"></i>
+              <a href="" className="w-7 h-7 grid place-content-center bg-white text-secondary rounded-full hover:text-primary hover:bg-secondary">
+                <i className="fa fa-facebook"></i>
               </a>
-              <a href="" className="w-7 h-7 grid place-content-center bg-white text-secondary rounded-full hover:text-primary">
-                <i className="fab fa-twitter"></i>
+              <a href="" className="w-7 h-7 grid place-content-center bg-white text-secondary rounded-full hover:text-primary hover:bg-secondary">
+                <i className="fa fa-twitter"></i>
               </a>
-              <a href="" className="w-7 h-7 grid place-content-center bg-white text-secondary rounded-full hover:text-primary">
-                <i className="fab fa-linkedin"></i>
+              <a href="" className="w-7 h-7 grid place-content-center bg-white text-secondary rounded-full hover:text-primary hover:bg-secondary">
+                <i className="fa fa-linkedin"></i>
               </a>
-              <a href="" className="w-7 h-7 grid place-content-center bg-white text-secondary rounded-full hover:text-primary">
-                <i className="fab fa-instagram"></i>
+              <a href="" className="w-7 h-7 grid place-content-center bg-white text-secondary rounded-full hover:text-primary hover:bg-secondary">
+                <i className="fa fa-instagram"></i>
               </a>
-              <a href="" className="w-7 h-7 grid place-content-center bg-white text-secondary rounded-full hover:text-primary">
-                <i className="fab fa-pinterest"></i>
+              <a href="" className="w-7 h-7 grid place-content-center bg-white text-secondary rounded-full hover:text-primary hover:bg-secondary">
+                <i className="fa fa-pinterest"></i>
               </a>
             </div>
         </div>

@@ -1,10 +1,10 @@
 import React from 'react'
-import About from '../../../components/About'
+import Rezervation from '../../../components/Rezervation'
 
 const index = () => {
   return (
     <div>
-      <About/>
+        <Rezervation/>
     </div>
   )
 }

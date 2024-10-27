@@ -7,7 +7,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaRegWindowClose  } from "react-icons/fa";
 import { useRouter } from "next/router";
-
+import Link from "next/link";
 
 
 const Header = () => {
@@ -26,16 +26,16 @@ const router = useRouter();
         <nav className={`sm:static absolute top-0 left-0 grid place-content-center sm:w-auto sm:h-auto w-full h-screen sm:text-white text-black sm:bg-transparent bg-gray-300 ${isMenuModal ? "block" : "hidden"} sm:block`}>
           <ul className="flex gap-x-2 sm:flex-row flex-col items-center">
             <li className="px-[0.313rem] py-[0.9rem] uppercase hover:text-primary cursor-pointer transition-all">
-              <a href="">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li className="px-[0.313rem] py-[0.9rem] uppercase hover:text-primary cursor-pointer transition-all">
-              <a href="">Menu</a>
+              <Link href="/menu">Menu</Link>
             </li>
             <li className="px-[0.313rem] py-[0.9rem] uppercase hover:text-primary cursor-pointer transition-all">
-              <a href="">About</a>
+              <Link href="/about">About</Link>
             </li>
             <li className="px-[0.313rem] py-[0.9rem] uppercase hover:text-primary cursor-pointer transition-all">
-              <a href="">Book Table</a>
+              <Link href="/rezervation">Book Table</Link>
             </li>
           </ul>
           {isMenuModal && (
@@ -47,12 +47,12 @@ const router = useRouter();
           )}
         </nav>
         <div className="flex gap-x-4 items-center">
-          <a href="">
+          <Link href="/login">
           <FaUserAlt className="hover:text-primary transition-all"/>
-          </a>
-          <a href="">
+          </Link>
+          <Link href="/cart">
           <FaCartShopping className="hover:text-primary transition-all"/>
-          </a>
+          </Link>
           <button onClick={() => setIsSearchModal(true)}>
           <FaSearch className="hover:text-primary transition-all"/>
           </button>

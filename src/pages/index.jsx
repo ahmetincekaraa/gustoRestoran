@@ -12,9 +12,9 @@ export default function Index() {
   href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 />
 <div>
-<Header/>
+
 <Home/>
-<Footer/>
+
 </div>
     </div>
   );
