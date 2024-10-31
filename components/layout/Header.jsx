@@ -8,11 +8,14 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { FaRegWindowClose  } from "react-icons/fa";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
   const [isMenuModal, setIsMenuModal] = useState(false);
+  const cart = useSelector((state) => state.cart);
+
 const router = useRouter();
 
   return (
@@ -51,7 +54,12 @@ const router = useRouter();
           <FaUserAlt className="hover:text-primary transition-all"/>
           </Link>
           <Link href="/cart">
-          <FaCartShopping className="hover:text-primary transition-all"/>
+          <span className="relative">
+            <FaCartShopping className="hover:text-primary transition-all"/>
+            <span className="w-4 h-4 text-xs grid place-content-center rounded-full bg-primary text-secondary absolute -top-3 -right-2 ">{cart.products.length === 0 ? "0" : cart.products.length}</span>
+
+          </span>
+          
           </Link>
           <button onClick={() => setIsSearchModal(true)}>
           <FaSearch className="hover:text-primary transition-all"/>

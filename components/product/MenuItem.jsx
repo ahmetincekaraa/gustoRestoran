@@ -2,15 +2,18 @@ import Image from 'next/image'
 import React from 'react'
 import Title from '../ui/Title'
 import { FaShoppingCart } from "react-icons/fa";
+import Link from 'next/link';
 
 const MenuItem = () => {
   return (
     
         <div className='bg-secondary rounded-3xl'>
             <div className='w-full bg-white h-52 grid place-content-center rounded-bl-[46px]'>
+            <Link href="/product">
             <div className='relative md:w-36 md:h-36 w-36 h-36 '>
                 <Image src="/images/f1.png" alt='' layout='fill' className='hover:scale-110 transition-all duration-300'/>
             </div>
+            </Link>
             </div>
             i
             <div className='p-6 text-white items-center'>
