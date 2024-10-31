@@ -3,12 +3,23 @@ import Title from '../../../components/ui/Title'
 import Input from '../../../components/form/Input'
 import { registerSchema } from '../../../schema/register';
 import Link from 'next/link';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Register = () => {
 
     const onSubmit = async (values, actions) => {
-        await new Promise((resolve) => setTimeout(resolve, 4000));
-        actions.resetForm();
+        try {
+          const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users/register`, values);
+          if(res.status === 200){
+            toast.success("User created successfully.");
+          }
+        } catch (err) {
+          toast.error(err.response.data.message);
+          console.log(err);
+          
+        }
+        // actions.resetForm();
       };
 
     const {values, errors, touched, handleSubmit, handleChange, handleBlur} = useFormik({
@@ -75,7 +86,7 @@ const Register = () => {
                 />
                 )}
                 <div className='flex flex-col w-full gap-y-2 mt-5'>
-                <button className="btn-primary hover:text-secondary">REGİSTER</button>
+                <button className="btn-primary hover:text-secondary" type='submit'>REGİSTER</button>
                 
                 <Link href="/login">
                 <span className='text-sm underline cursor-pointer text-secondary'>Do you have a account?</span>
