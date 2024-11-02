@@ -19,7 +19,7 @@ const Register = () => {
           console.log(err);
           
         }
-        // actions.resetForm();
+        actions.resetForm();
       };
 
     const {values, errors, touched, handleSubmit, handleChange, handleBlur} = useFormik({

@@ -4,15 +4,28 @@ import Input from "../../../components/form/Input";
 import { loginSchema } from "../../../schema/login";
 import Link from "next/link";
 import { useSession, signIn } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Login = () => {
   const { data: session } = useSession();
-console.log(session);
+  const push = useRouter();
 
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 4000));
+    const { email, password } = values;
+    let options = { redirect: false, email, password };
+    const res = await signIn("credentials", options);
     actions.resetForm();
   };
+
+  useEffect(() => {
+  if (session) {
+    push("/profile")
+  }
+  }, [session, push])
+  
+
+  console.log(session);
 
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
