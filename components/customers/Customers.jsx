@@ -20,7 +20,7 @@ const Customers = () => {
         <Swiper
           className="swiper-container thm-swiper__slider"
           loop={true}
-          dots={false}
+          // dots={false}
           autoplay={{
             delay: 5000, 
             disableOnInteraction: false, 

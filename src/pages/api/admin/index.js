@@ -7,13 +7,14 @@ const handler = (req, res) => {
     const { username, password } = req.body;
     if (
       username === process.env.ADMIN_USERNAME &&
-      password === process.env.ADMIN_PASSWORD  
+      password === process.env.ADMIN_PASSWORD
     ) {
-      console.log("asasa", cookie)
       res.setHeader(
         "Set-Cookie",
+        //Sıkıntı burada token oluşturmaması.
+        //.env dosyasındaki admin token'ı silince profile giriyo.
         cookie?.serialize("token", process.env.ADMIN_TOKEN, {
-          maxAge: 60 * 60,
+          maxAge: 60 * 60 * 24,
           sameSite: "strict",
           path: "/",
         })

@@ -1,3 +1,4 @@
+
 import { useFormik } from "formik";
 import Title from "../../../components/ui/Title";
 import Input from "../../../components/form/Input";
@@ -8,20 +9,20 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 
 
-
 const Login = () => {
-  const {push} = useRouter
+  const { push } = useRouter();
   const onSubmit = async (values, actions) => {
     try {
-      const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/admin`,
+      const res = await axios?.post(
+        `${process?.env.NEXT_PUBLIC_API_URL}/admin`,
         values
       );
-      if (res.status === 200) {
-        console.log(res.data);
+      if (res?.status === 200) {
         actions.resetForm();
-        toast.success("Admin Login Success!");
-        push("/admin/profile")
+        push("/admin/profile");
+        toast?.success("Admin Login Success!");
+        
+        console.log(res.status)
       }
     } catch (err) {
       console.log(err);
@@ -90,18 +91,20 @@ const Login = () => {
 };
 
 export const getServerSideProps = (ctx) => {
-const myCookie = ctx.req?.cookies || "";
-if(myCookie.token === process.env.ADMIN_TOKEN){
-  return{
-    redirect: {
-      destination:"/admin/profile",
-      permanent: false,
-    },
+  const myCookie = ctx.req?.cookies || "";
+  if (myCookie?.token === process?.env.ADMIN_TOKEN) {
+    return {
+      redirect: {
+        destination: "/admin/profile",
+        permanent: false,
+      },
+    };
+  }
+  console.log("ADMIN_TOKEN:", process.env.ADMIN_TOKEN);
+  console.log("MyCookie Token:", myCookie.token);
+  return {
+    props: {},
   };
-}
-return {
-  props: {},
-}
 };
 
 export default Login;

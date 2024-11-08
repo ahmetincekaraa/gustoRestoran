@@ -3,29 +3,42 @@ import Title from "../../../components/ui/Title";
 import Input from "../../../components/form/Input";
 import { loginSchema } from "../../../schema/login";
 import Link from "next/link";
-import { useSession, signIn } from "next-auth/react";
+import { getSession, signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 
 const Login = () => {
-  const { data: session } = useSession();
-  const push = useRouter();
+ const {data: session} = useSession();
+  const { push } = useRouter();
+  const [curentUser, setCurentUser] = useState()
 
   const onSubmit = async (values, actions) => {
     const { email, password } = values;
     let options = { redirect: false, email, password };
-    const res = await signIn("credentials", options);
-    actions.resetForm();
+    try {
+      const res = await signIn("credentials", options);
+      actions.resetForm();
+      
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
-  if (session) {
-    push("/profile")
-  }
-  }, [session, push])
+    const getUser = async () => {
+      try {
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
+        setCurentUser(res.data?.find((user)=> user.email === session?.user?.email));
+        session && push("/profile/"+curentUser._id);
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getUser();
+  }, [session, push,curentUser])
   
-
-  console.log(session);
 
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
@@ -96,5 +109,24 @@ const Login = () => {
     </div>
   );
 };
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+
+  const res = await axios.get(`${process?.env.NEXT_PUBLIC_API_URL}/users`);
+  const user = res.data?.find((user) => user?.email === session?.user.email);
+
+  if (session && user) {
+    return {
+      redirect: {
+        destination: "/profile/"+ user._id,
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: {},
+  };
+}
 
 export default Login;

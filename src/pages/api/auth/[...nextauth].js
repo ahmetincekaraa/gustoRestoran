@@ -43,6 +43,8 @@ export default NextAuth({
 });
 
 const signInUser = async ({ user, password }) => {
+  const salt = await bcrypt.genSalt(10); // Salt değeri belirleyin
+  const hashedPassword = await bcrypt.hash(password, salt);
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) {
     throw new Error("Incorrect password!");
