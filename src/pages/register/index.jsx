@@ -14,11 +14,11 @@ const Register = () => {
         try {
           const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users/register`, values);
           if(res.status === 200){
-            toast.success("User created successfully.");
+            toast.success("Kullanıcı başarıyla oluşturuldu.", { autoClose: 2000 });
             push("/login");
           }
         } catch (err) {
-          toast.error(err.response.data.message);
+          toast.error(err.res.data.message, { autoClose: 2000 });
           console.log(err);
           
         }
@@ -41,7 +41,7 @@ const Register = () => {
             id:1,
             name: "fullName",
             type: "text",
-            placeholder: "Your Full Name",
+            placeholder: "Adınız Soyadınız..",
             value: values.fullName,
             errorMessage: errors.fullName,
             touched: touched.fullName,
@@ -50,7 +50,7 @@ const Register = () => {
             id:2,
             name: "email",
             type: "email",
-            placeholder: "Your Email Address",
+            placeholder: "Emailiniz..",
             value: values.email,
             errorMessage: errors.email,
             touched: touched.email,
@@ -59,7 +59,7 @@ const Register = () => {
             id:3,
             name: "password",
             type: "password",
-            placeholder: "Your Password",
+            placeholder: "Şifreniz..",
             value: values.password,
             errorMessage: errors.password,
             touched: touched.password,
@@ -68,7 +68,7 @@ const Register = () => {
             id:4,
             name: "confirmPassword",
             type: "password",
-            placeholder: "Your Password Again",
+            placeholder: "Şifre Tekrarı",
             value: values.confirmPassword,
             errorMessage: errors.confirmPassword,
             touched: touched.confirmPassword,
@@ -89,10 +89,10 @@ const Register = () => {
                 />
                 )}
                 <div className='flex flex-col w-full gap-y-2 mt-5'>
-                <button className="btn-primary hover:text-secondary" type='submit'>REGİSTER</button>
+                <button className="btn-primary hover:text-secondary" type='submit'>ÜYELİK FORMU</button>
                 
                 <Link href="/login">
-                <span className='text-sm underline cursor-pointer text-secondary'>Do you have a account?</span>
+                <span className='text-sm underline cursor-pointer text-secondary'>Hesabınız var mı?</span>
                 </Link>
                 </div>
                 

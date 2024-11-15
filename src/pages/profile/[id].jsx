@@ -17,7 +17,7 @@ const Profile = ({user}) => {
 
 
   const handleSignOut = () => {
-    if (confirm("Are you sure you want to sign out?")) {
+    if (confirm("Çıkış yapmak istediğinize emin misiniz?")) {
       signOut({ redirect: false });
       push("/login");
     }
@@ -30,7 +30,7 @@ const Profile = ({user}) => {
       <div className="lg:w-80 w-100 flex-shrink-0">
         <div className="relative flex flex-col items-center px-10 py-8 border border-b-0">
           <Image
-            src={user?.image ? user.image : "/images/client2.jpg"}
+            src={user?.image ? user.image : "/images/admin.png"}
             alt=""
             width={100}
             height={100}
@@ -46,32 +46,32 @@ const Profile = ({user}) => {
             onClick={() => setTabs(0)}
           >
             <i className="fa fa-home"></i>
-            <button className="ml-1">Account</button>
+            <button className="ml-1">Hesap</button>
           </li>
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all ${
+            className={`border border-t-0 w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all ${
               tabs === 1 && "bg-primary text-secondary rounded-lg"
             }`}
             onClick={() => setTabs(1)}
           >
             <i className="fa fa-key"></i>
-            <button className="ml-1">Password</button>
+            <button className="ml-1">Şifre</button>
           </li>
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all ${
+            className={`border border-t-0 w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all ${
               tabs === 2 && "bg-primary text-secondary rounded-lg"
             }`}
             onClick={() => setTabs(2)}
           >
             <i className="fa fa-motorcycle"></i>
-            <button className="ml-1">Orders</button>
+            <button className="ml-1">Siparişler</button>
           </li>
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all `}
+            className={`border border-t-0 w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all `}
             onClick={handleSignOut}
           >
             <i className="fa fa-sign-out"></i>
-            <button className="ml-1">Exit</button>
+            <button className="ml-1">Çıkış</button>
           </li>
         </ul>
       </div>

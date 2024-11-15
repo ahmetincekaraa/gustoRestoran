@@ -2,13 +2,13 @@ import * as Yup from "yup";
 
 export const newPasswordSchema = Yup.object({
   password: Yup.string()
-    .required("Password is required.")
-    .min(8, "Password must be at least 8 characters.")
+    .required("Şifre zorunludur.")
+    .min(8, "Şifre en az 8 karakter olmalıdır.")
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@.#\$%\^&\*])/,
-      "Password must contain at least One Uppercase, One Lowercase, One Number and One Special Case Character"
+      "Şifre en az bir Büyük Harf, bir Küçük Harf, bir Rakam ve bir Özel Karakter içermelidir. (!-@-.-#-$-%-^-&-*)"
     ),
   confirmPassword: Yup.string()
-    .required("Confirm password is required.")
-    .oneOf([Yup.ref("password"), null], "Passwords must match."),
+    .required("Şifreyi onaylamanız gerekiyor.")
+    .oneOf([Yup.ref("password"), null], "Şifreler aynı olmalıdır."),
 });

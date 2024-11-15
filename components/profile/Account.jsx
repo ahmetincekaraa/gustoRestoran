@@ -4,16 +4,19 @@ import Input from '../form/Input';
 import { useFormik } from 'formik';
 import { profileSchema } from '../../schema/profile';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Account = ({user}) => {
 
     const onSubmit = async (values, actions) => {
         try {
           const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`, values);
+          if(res.status === 200) {
+            toast.success("Bilgiler Güncellendi.", { autoClose: 2000 })
+          }
         } catch (err) {
           console.log(err)
         }
-        actions.resetForm();
       };
     
       const {values, errors, touched, handleSubmit, handleChange, handleBlur} = useFormik({
@@ -34,7 +37,7 @@ const Account = ({user}) => {
           id:1,
           name: "fullName",
           type: "text",
-          placeholder: "Your Full Name",
+          placeholder: "Adınız Soyadınız..",
           value: values.fullName,
           errorMessage: errors.fullName,
           touched: touched.fullName,
@@ -43,7 +46,7 @@ const Account = ({user}) => {
           id:2,
           name: "phoneNumber",
           type: "number",
-          placeholder: "Your Phone Number",
+          placeholder: "Telefon Numaranız..",
           value: values.phoneNumber,
           errorMessage: errors.phoneNumber,
           touched: touched.phoneNumber,
@@ -52,7 +55,7 @@ const Account = ({user}) => {
           id:3,
           name: "email",
           type: "email",
-          placeholder: "Your Email Address",
+          placeholder: "Emailiniz..",
           value: values.email,
           errorMessage: errors.email,
           touched: touched.email,
@@ -61,7 +64,7 @@ const Account = ({user}) => {
           id:4,
           name: "address",
           type: "text",
-          placeholder: "Your Address",
+          placeholder: "Adresiniz..",
           value: values.address,
           errorMessage: errors.address,
           touched: touched.address,
@@ -70,7 +73,7 @@ const Account = ({user}) => {
           id:5,
           name: "job",
           type: "text",
-          placeholder: "Your Job",
+          placeholder: "İşiniz..",
           value: values.job,
           errorMessage: errors.job,
           touched: touched.job,
@@ -79,7 +82,7 @@ const Account = ({user}) => {
           id:6,
           name: "bio",
           type: "text",
-          placeholder: "Your Bio",
+          placeholder: "Biyografi",
           value: values.bio,
           errorMessage: errors.bio,
           touched: touched.bio,
@@ -88,14 +91,14 @@ const Account = ({user}) => {
 
   return (
     <form className='p-8 flex-1' onSubmit={handleSubmit}>
-          <Title addClass="text-[40px] text-center">Account Settings</Title>
+          <Title addClass="text-[40px] text-center">Hesap Ayarları</Title>
           <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 mt-4'>
             {inputs.map((input)=> (
             <Input key={input.id} {...input} onBlur={handleBlur} onChange={handleChange}/>
             ))}
             
           </div>
-          <button className="btn-primary hover:text-secondary mt-6 items-center" type='submit'>UPDATE</button>
+          <button className="btn-primary hover:text-secondary mt-6 items-center" type='submit'>GÜNCELLE</button>
         </form>
   )
 }

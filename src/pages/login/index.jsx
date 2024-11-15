@@ -55,7 +55,7 @@ const Login = () => {
       id: 1,
       name: "email",
       type: "email",
-      placeholder: "Your Email Address",
+      placeholder: "Email",
       value: values.email,
       errorMessage: errors.email,
       touched: touched.email,
@@ -64,7 +64,7 @@ const Login = () => {
       id: 2,
       name: "password",
       type: "password",
-      placeholder: "Your Password",
+      placeholder: "Şifre",
       value: values.password,
       errorMessage: errors.password,
       touched: touched.password,
@@ -76,7 +76,7 @@ const Login = () => {
         className="flex flex-col items-center my-16 md:w-1/2 w-full mx-auto"
         onSubmit={handleSubmit}
       >
-        <Title addClass="text-[40px] mb-6">Login</Title>
+        <Title addClass="text-[40px] mb-6">Giriş</Title>
         <div className="flex flex-col gap-y-3 w-full">
           {inputs.map((input) => (
             <Input
@@ -88,7 +88,7 @@ const Login = () => {
           ))}
           <div className="flex flex-col w-full gap-y-2 mt-5">
             <button className="btn-primary hover:text-secondary" type="submit">
-              LOGİN
+              GİRİŞ
             </button>
             <button
               className="!bg-secondary btn-primary hover:text-primary"
@@ -100,7 +100,7 @@ const Login = () => {
             </button>
             <Link href="/register">
               <span className="text-sm underline cursor-pointer text-secondary">
-                Do you no have a account?
+              Hesabınız yok mu?
               </span>
             </Link>
           </div>

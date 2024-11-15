@@ -5,11 +5,13 @@ import MenuItem from "./MenuItem";
 const MenuWrapper = ({ categoryList, productList }) => {
   const [active, setActive] = useState(0);
   const [filter, setFilter] = useState([]);
+  const [productLimit, setProductLimit] = useState(3);
 
   useEffect(() => {
     setFilter(
       productList.filter(
-        (product) => product.category === categoryList[active].title.toLowerCase()
+        (product) =>
+          product.category === categoryList[active].title.toLowerCase()
       )
     );
   }, [categoryList, productList, active]);
@@ -17,7 +19,7 @@ const MenuWrapper = ({ categoryList, productList }) => {
   return (
     <div className="container mx-auto mb-16">
       <div className="flex flex-col items-center w-full">
-        <Title addClass="text-[40px]">Our Menu</Title>
+        <Title addClass="text-[40px]">Menü</Title>
         <div className="mt-10">
           {categoryList &&
             categoryList.map((category, index) => (
@@ -26,7 +28,10 @@ const MenuWrapper = ({ categoryList, productList }) => {
                   index === active && "bg-secondary text-primary "
                 }`}
                 key={category._id}
-                onClick={() => setActive(index)}
+                onClick={() => {
+                  setActive(index);
+                  setProductLimit(3);
+                }}
               >
                 {category.title}
               </button>
@@ -36,10 +41,17 @@ const MenuWrapper = ({ categoryList, productList }) => {
 
       <div className="my-8 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 min-h-[400px]">
         {filter.length > 0 &&
-          filter.map((product) => (
-            <MenuItem key={product._id} product={product} />
+          filter.slice(0, productLimit).map((product) => (
+            <MenuItem key={product._id} product={{
+              ...product,
+              desc: `${product.desc.slice(0, 36)}${product.desc.length > 36 ? "..." : ""}`,
+            }} />
           ))}
+          
       </div>
+      <div className="flex items-center justify-center my-8s">
+            <button className="btn-primary" onClick={() => setProductLimit(productLimit + 3)}>Daha Fazla..</button>
+          </div>
     </div>
   );
 };

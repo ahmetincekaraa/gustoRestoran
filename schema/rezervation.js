@@ -1,9 +1,9 @@
 import * as Yup from "yup";
 
 export const rezervationSchema= Yup.object({
-    fullName: Yup.string().required("Full Name is required.").min(3, "Full Name must be at least 3 characters."),
-    phoneNumber: Yup.string().required("Phone Number is required.").min(10,"Phone Number must be at least 10 characters."),
-    email: Yup.string().required("Email is required.").email("Email is invalid."),
-    persons: Yup.string().required("Persons is required."),
-    date: Yup.string().required("Date is required."),
+    fullName: Yup.string().required("Adınız Soyadınız zorunludur.").min(3, "Adınız en az 3 karakter olmalıdır."),
+    phoneNumber: Yup.string().required("Telefon Numarası zorunludur.").min(10,"Telefon Numarası en az 10 karakter olmalıdır."),
+    email: Yup.string().required("Email zorunludur.").email("Email geçersiz."),
+    persons: Yup.string().required("Kişi Sayısı zorunludur."),
+    date: Yup.string().required("Tarih ve Saat zorunludur."),
 })

@@ -19,10 +19,10 @@ const Profile = () => {
 
   const closeAdminAccount = async () => {
     try {
-      if (confirm("Are you sure you want to close your Admin Account?")) {
+      if (confirm("Yönetici Hesabınızı kapatmak istediğinizden emin misiniz?")) {
         const res = await axios?.put(`${process.env.NEXT_PUBLIC_API_URL}/admin`);
         if (res?.status === 200) {
-          toast.success("Admin Account Closed!");
+          toast.success("Admin Hesabı Kapatıldı!", { autoClose: 2000 });
           push("/admin");
         }
       }
@@ -53,43 +53,43 @@ const Profile = () => {
               onClick={() => setTabs(0)}
             >
               <i className="fa fa-cutlery"></i>
-              <button className="ml-1">Products</button>
+              <button className="ml-1">Ürünler</button>
             </li>
             <li
-              className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all ${
+              className={`border border-t-0 w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all ${
                 tabs === 1 && "bg-primary text-secondary rounded-lg"
               }`}
               onClick={() => setTabs(1)}
             >
               <i className="fa fa-motorcycle"></i>
-              <button className="ml-1">Orders</button>
+              <button className="ml-1">Siparişler</button>
             </li>
             <li
-              className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all ${
+              className={`border border-t-0 w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all ${
                 tabs === 2 && "bg-primary text-secondary rounded-lg"
               }`}
               onClick={() => setTabs(2)}
             >
               <i className="fa fa-ellipsis-h"></i>
-              <button className="ml-1">Categories</button>
+              <button className="ml-1">Kategoriler</button>
             </li>
             <li
-              className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all ${
+              className={`border border-t-0 w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all ${
                 tabs === 3 && "bg-primary text-secondary rounded-lg"
               }`}
               onClick={() => setTabs(3)}
             >
               <i className="fa fa-window-maximize"></i>
-              <button className="ml-1">Footer</button>
+              <button className="ml-1">Alt Bilgi</button>
             </li>
             <li
-              className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all ${
+              className={`border border-t-0 w-full p-3 cursor-pointer hover:bg-primary hover:text-secondary hover:rounded-lg transition-all ${
                 tabs === 4 && "bg-primary text-secondary rounded-lg"
               }`}
               onClick={closeAdminAccount}
             >
               <i className="fa fa-sign-out"></i>
-              <button className="ml-1">Exit</button>
+              <button className="ml-1">Çıkış</button>
             </li>
           </ul>
         </div>

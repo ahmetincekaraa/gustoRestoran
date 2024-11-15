@@ -30,7 +30,7 @@ const Rezervation = () => {
       id:1,
       name: "fullName",
       type: "text",
-      placeholder: "Your Full Name",
+      placeholder: "Adınız Soyadınız..",
       value: values.fullName,
       errorMessage: errors.fullName,
       touched: touched.fullName,
@@ -39,7 +39,7 @@ const Rezervation = () => {
       id:2,
       name: "phoneNumber",
       type: "number",
-      placeholder: "Your Phone Number",
+      placeholder: "Telefon Numaranız..",
       value: values.phoneNumber,
       errorMessage: errors.phoneNumber,
       touched: touched.phoneNumber,
@@ -48,7 +48,7 @@ const Rezervation = () => {
       id:3,
       name: "email",
       type: "email",
-      placeholder: "Your Email Address",
+      placeholder: "Email Adresiniz..",
       value: values.email,
       errorMessage: errors.email,
       touched: touched.email,
@@ -57,7 +57,7 @@ const Rezervation = () => {
       id:4,
       name: "persons",
       type: "number",
-      placeholder: "How Many Persons?",
+      placeholder: "Kişi Sayısı..",
       value: values.persons,
       errorMessage: errors.persons,
       touched: touched.persons,
@@ -65,7 +65,7 @@ const Rezervation = () => {
     {
       id:5,
       name: "date",
-      type: "date",
+      type: "datetime-local",
       value: values.date,
       errorMessage: errors.date,
       touched: touched.date,
@@ -76,7 +76,7 @@ const Rezervation = () => {
     <div className="container mx-auto py-12">
       <div className="flex flex-wrap-reverse items-center gap-10">
         <form onSubmit={handleSubmit} className="lg:flex-1 w-full px-2">
-          <Title addClass="text-[40px] mb-10">Book A Table</Title>
+          <Title addClass="text-[40px] mb-10">Rezervasyon Formu</Title>
           <div className="flex flex-col gap-y-3">
             {inputs.map((input) => (
               <Input
@@ -87,7 +87,7 @@ const Rezervation = () => {
               />
             ))}
           </div>
-          <button className="btn-primary mt-4" type="submit">Book Now</button>
+          <button className="btn-primary mt-6" type="submit">Rezervasyon Yap</button>
         </form>
 
         <div className="lg:flex-1 w-full">

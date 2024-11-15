@@ -36,7 +36,7 @@ const Categories = () => {
 
   const handleDelete = async (id) => {
     try {
-      if(confirm("Are you sure you want to delete this category?")){
+      if(confirm("Bu kategoriyi silmek istediğinize emin misiniz?")){
         await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/categories/${id}`);
       setCategories(categories.filter((cat) => cat._id !== id));
       }
@@ -48,11 +48,11 @@ const Categories = () => {
 
   return (
     <div className="p-8 flex-1">
-      <Title addClass="text-[40px] text-center">Categories</Title>
+      <Title addClass="text-[40px] text-center">Kategoriler</Title>
       <div className="mt-5 ">
         <div className="flex gap-4 flex-1 items-center">
           <Input
-            placeholder="Add a new Category..."
+            placeholder="Yeni Kategori Ekleyin.."
             onChange={(e) => setInputText(e.target.value)}
             value={inputText}
           />
@@ -60,7 +60,7 @@ const Categories = () => {
             className="btn-primary hover:text-secondary"
             onClick={handleCreate}
           >
-            ADD
+            EKLE
           </button>
         </div>
         <div className="mt-10 max-h-64 overflow-auto p-4">
@@ -71,7 +71,7 @@ const Categories = () => {
                 className="btn-primary !bg-danger hover:text-primary"
                 onClick={() => handleDelete(category._id)}
               >
-                Delete
+                Sil
               </button>
             </div>
           ))}

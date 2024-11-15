@@ -1,10 +1,10 @@
 import * as Yup from "yup";
 
 export const profileSchema= Yup.object({
-    fullName: Yup.string().required("Full Name is required.").min(3, "Full Name must be at least 3 characters."),
-    phoneNumber: Yup.string().required("Phone Number is required.").min(10,"Phone Number must be at least 10 characters."),
-    email: Yup.string().required("Email is required.").email("Email is invalid."),
-    address: Yup.string().required("Address is required.").min(4, "Address must be at least 4 characters."),
-    job: Yup.string().required("Job is required.").min(3, "Job must be at least 3 characters."),
-    bio: Yup.string().required("Bio is required.").min(10, "Bio must be at least 10 characters."),
+    fullName: Yup.string().required("Adınız ve Soyadınız zorunludur.").min(3, "Adınız en az 3 karakter olmalıdır."),
+    phoneNumber: Yup.string().required("Telefon Numarası zorunludur.").min(10,"Telefon Numarası en az 10 karakter olmalıdır."),
+    email: Yup.string().required("Email zorunludur.").email("Email geçersiz."),
+    address: Yup.string().required("Adres zorunludur.").min(4, "Adres en az 4 karakter olmalıdır."),
+    job: Yup.string().required("İş bilgisi zorunludur.").min(3, "En az 3 karakter giriniz."),
+    bio: Yup.string().required("Biyografi zorunludur.").min(10, "En az 10 karakter olmalıdır."),
 })

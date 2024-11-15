@@ -1,9 +1,9 @@
 import * as Yup from "yup";
 
 export const adminSchema= Yup.object({
-    username: Yup.string().required("Username is required.").min(3, "Username must be at least 3 characters."),
-    password: Yup.string().required("Password is required.").
-    min(5,"Password must be at least 5 characters.")
+    username: Yup.string().required("Kullanıcı adı zorunludur.").min(3, "Kullanıcı adınız en az 3 karakter olmalıdır."),
+    password: Yup.string().required("Şifre zorunludur.").
+    min(5,"Şifre en az 5 karakter uzunluğunda olmalıdır.")
     // .matches(
     //     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@.#\$%\^&\*])/,
 

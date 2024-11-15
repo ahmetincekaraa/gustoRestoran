@@ -6,11 +6,11 @@ import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/module
 import "swiper/css";
 
 const Customers = () => {
-  function NextBtn ({ onClick}) {
-    return (
-      <button className='' onClick={onClick}>Next</button>
-    )
-  }
+  // function NextBtn ({ onClick}) {
+  //   return (
+  //     <button className='' onClick={onClick}>Next</button>
+  //   )
+  // }
   
   return (
     <div className='container mx-auto mt-10 mb-20'>
@@ -25,6 +25,7 @@ const Customers = () => {
             delay: 5000, 
             disableOnInteraction: false, 
           }}
+          speed={1750}
           
           
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}>

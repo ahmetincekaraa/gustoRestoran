@@ -13,7 +13,7 @@ const Index = ({ categoryList, productList }) => {
       <MenuWrapper categoryList={categoryList} productList= {productList}/>
       <About />
       <Rezervation />
-      <Customers />
+      {/* <Customers /> Yorumlar Kısmı*/} 
     </>
   );
 };

@@ -19,9 +19,9 @@ const handler = (req, res) => {
           path: "/",
         })
       );
-      res.status(200).json({ message: "Success." });
+      res.status(200).json({ message: "Başarılı." });
     } else {
-      res.status(400).json({ message: "Wrong Credentials." });
+      res.status(400).json({ message: "Kimlik Bilgileri Yanlış." });
     }
   }
   if (method === "PUT") {
@@ -32,7 +32,7 @@ const handler = (req, res) => {
         path: "/",
       })
     );
-    res.status(200).json({ message: "Success." });
+    res.status(200).json({ message: "Başarılı." });
   }
 };
 export default handler;

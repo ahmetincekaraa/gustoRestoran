@@ -20,7 +20,7 @@ const Login = () => {
       if (res?.status === 200) {
         actions.resetForm();
         push("/admin/profile");
-        toast?.success("Admin Login Success!");
+        toast?.success("Admin Girişi Başarılı!", { autoClose: 2000 });
         
         console.log(res.status)
       }
@@ -44,7 +44,7 @@ const Login = () => {
       id: 1,
       name: "username",
       type: "text",
-      placeholder: "Your Username",
+      placeholder: "Kullanıcı Adınız..",
       value: values.username,
       errorMessage: errors.username,
       touched: touched.username,
@@ -53,7 +53,7 @@ const Login = () => {
       id: 2,
       name: "password",
       type: "password",
-      placeholder: "Your Password",
+      placeholder: "Şifreniz..",
       value: values.password,
       errorMessage: errors.password,
       touched: touched.password,
@@ -65,7 +65,7 @@ const Login = () => {
         className="flex flex-col items-center my-16 md:w-1/2 w-full mx-auto"
         onSubmit={handleSubmit}
       >
-        <Title addClass="text-[40px] mb-6">Admin Login</Title>
+        <Title addClass="text-[40px] mb-6">Admin Giriş</Title>
         <div className="flex flex-col gap-y-3 w-full">
           {inputs.map((input) => (
             <Input
@@ -76,11 +76,11 @@ const Login = () => {
             />
           ))}
           <div className="flex flex-col w-full gap-y-2 mt-5">
-            <button className="btn-primary hover:text-secondary">LOGİN</button>
+            <button className="btn-primary hover:text-secondary">GİRİŞ</button>
 
             <Link href="/">
               <span className="text-sm underline cursor-pointer text-secondary">
-                Home Page
+                Anasayfa
               </span>
             </Link>
           </div>

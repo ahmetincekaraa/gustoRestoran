@@ -10,13 +10,14 @@ import "swiper/css/scrollbar";
 
 const Carousel = () => {
   return (
-    <div className="h-screen w-full container mx-auto">
+    <div className="h-screen w-full ">
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="relative h-full w-full">
           <Image
             alt=""
             src="/images/hero-bg.jpg"
             layout="fill"
+           className="object-[8%] lg:object-cover"
             objectFit="cover"
           />
         </div>
@@ -27,50 +28,48 @@ const Carousel = () => {
           className="swiper-container thm-swiper__slider"
           loop={true}
           autoplay={{
-            delay: 5000, 
+            delay: 1500, 
             disableOnInteraction: false, 
           }}
-          pagination={{
-            clickable: true,
-          }}
+          speed={1750}
+
+          //Slider altındaki noktalar
+          // pagination={{
+          //   clickable: false, 
+          // }}
+
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         >
           <SwiperSlide style={{ maxHeight: "920px" }} className="swiper-slide">
-            <div className="container">
+            <div className="">
               
-                <div className="relative text-white top-20 flex flex-col items-start gap-y-10">
-                  <Title addClass="text-5xl">Fast Food Restaurant</Title>
-                  <p className="text-sm sm:w-2/5 w-full">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus
-                    saepe in, iure voluptate molestiae id ut corporis. Culpa quia quas
-                    animi, porro quidem quaerat laudantium reprehenderit sunt. Est,
-                    mollitia incidunt!
-                  </p>
-                  <button className="btn-primary">Order Now</button>
+                <div className=" text-iwhite top-20 flex flex-col items-start gap-y-10 container mx-auto">
+                  <Title addClass="text-5xl text-primary">İtalyan Konsept Restoran</Title>
+                  <p className="text-sm sm:w-2/5 w-full font-semibold text-[#8ed2c2]">
+                  İtalyan konseptli restoranımızın menü çeşitliliği size avantaj sağlar. Keyifli ambiyansımız ve birbirinden lezzetli yiyeceklerimizin birleşimiyle restoranımız size hizmet vermektedir.
+                  </p>                  
                 </div>
               </div>
           
           </SwiperSlide>
 
           <SwiperSlide style={{ maxHeight: "920px" }} className="swiper-slide">
-            <div className="container">
-              <div className="main-slider__content">
-                <div className="relative text-white top-20 flex flex-col items-start gap-y-10">
-                  <Title addClass="text-5xl">Fast Food Restaurant</Title>
-                  <p className="text-sm sm:w-2/5 w-full">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus
-                    saepe in, iure voluptate molestiae id ut corporis. Culpa quia quas
-                    animi, porro quidem quaerat laudantium reprehenderit sunt. Est,
-                    mollitia incidunt!
+            <div className="">
+             
+                <div className=" text-iwhite top-20 flex flex-col items-start gap-y-10 container mx-auto">
+                  <Title addClass="text-5xl text-primary">Salata Çeşitliliği</Title>
+                  <p className="text-sm sm:w-2/5 w-full font-semibold text-[#8ed2c2]">
+                  Her damak tadına uygun lezzetler sunan salata menümüz, taptaze malzemelerle hazırlanan zengin seçenekleriyle sağlıklı ve doyurucu bir deneyim sunuyor. Bize özel tarifleri denemeyi unutmayın.
                   </p>
-                  <button className="btn-primary">Order Now</button>
+                  
                 </div>
-              </div>
+            
             </div>
           </SwiperSlide>
         </Swiper>
-        <div id="main-slider-pagination" className="swiper-pagination mt-1"/>
+        
       </section>
+      
     </div>
   );
 };

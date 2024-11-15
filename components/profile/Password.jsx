@@ -31,7 +31,7 @@ const Password = ({user}) => {
           id:1,
           name: "password",
           type: "password",
-          placeholder: "New Password",
+          placeholder: "Yeni Şifre",
           value: values.password,
           errorMessage: errors.password,
           touched: touched.password,
@@ -40,7 +40,7 @@ const Password = ({user}) => {
           id:2,
           name: "confirmPassword",
           type: "password",
-          placeholder: "New Password Again",
+          placeholder: "Yeni Şifre Tekrarı",
           value: values.confirmPassword,
           errorMessage: errors.confirmPassword,
           touched: touched.confirmPassword,
@@ -49,14 +49,14 @@ const Password = ({user}) => {
 
   return (
     <form className='p-8 flex-1' onSubmit={handleSubmit}>
-          <Title addClass="text-[40px] text-center">Password Settings</Title>
+          <Title addClass="text-[40px] text-center">Şifre Ayarları</Title>
           <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 mt-4'>
             {inputs.map((input)=> (
             <Input key={input.id} {...input} onBlur={handleBlur} onChange={handleChange}/>
             ))}
             
           </div>
-          <button className="btn-primary hover:text-secondary mt-6 items-center" type='submit'>UPDATE</button>
+          <button className="btn-primary hover:text-secondary mt-6 items-center" type='submit'>GÜNCELLE</button>
         </form>
   )
 }

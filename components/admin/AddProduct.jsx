@@ -79,18 +79,19 @@ const AddProduct = ({ setIsProductModal }) => {
 
       if (res.status === 201) {
         setIsProductModal(false);
-        toast.success("Product created successfully!")
+        toast.success("Ürün başarıyla oluşturuldu!", { autoClose: 2000 });
+
       }
     } catch (err) {
       console.log(err);
     }
   };
   return (
-    <div className="fixed position w-screen h-screen z-50 top-0 left-0 after:content-[''] after:w-screen after:h-screen after:bg-white after:absolute after:top-0 after:left-0 after:opacity-40 grid place-content-center">
+    <div className="fixed position w-screen h-screen z-50 top-0 left-0 after:content-[''] after:w-screen after:h-screen after:bg-iwhite after:absolute after:top-0 after:left-0 after:opacity-40 grid place-content-center">
       <OutsideClickHandler onOutsideClick={() => setIsProductModal(false)}>
         <div className="w-full h-full grid place-content-center">
           <div className="relative z-50 md:w-[600px] w-[370px] bg-gray-300 border-2 rounded-2xl p-10">
-            <Title addClass="text-[40px] text-center">Add a New Product</Title>
+            <Title addClass="text-[40px] text-center">Yeni Ürün Ekle</Title>
             <div>
               <div className="flex flex-col text-sm mt-6">
                 <label className="flex gap-2 items-center justify-between">
@@ -100,14 +101,14 @@ const AddProduct = ({ setIsProductModal }) => {
                     className="hidden"
                   />
                   <button className="btn-primary !rounded-none !bg-blue-600 pointer-events-none">
-                    Choose an Image
+                  Bir Resim Seçin
                   </button>
 
                   {imageSrc && (
                     <div>
                       {/*eslint-disable-next-line @next/next/no-img-element*/}
                       <img
-                        src={imageSrc}
+                        src={(imageSrc)}
                         alt=""
                         className="w-20 h-20 rounded-full my-2"
                       />
@@ -116,27 +117,27 @@ const AddProduct = ({ setIsProductModal }) => {
                 </label>
               </div>
               <div className="flex flex-col text-sm mt-4">
-                <span className="font-semibold mb-0.5">Title</span>
+                <span className="font-semibold mb-0.5">Başlık</span>
                 <input
                   type="text"
                   className="border h-8 text-sm px-1 outline-none"
-                  placeholder="Write a Title"
+                  placeholder="Bir Başlık Yazın"
                   onChange={(e) => setTitle(e.target.value)}
                 />
               </div>
               <div className="flex flex-col text-sm mt-4">
-                <span className="font-semibold mb-0.5">Description</span>
+                <span className="font-semibold mb-0.5">Açıklama</span>
                 <textarea
                   className="border h-8 text-sm px-1 outline-none pt-1"
-                  placeholder="Write a Description"
+                  placeholder="Bir Açıklama Yazın"
                   onChange={(e) => setDesc(e.target.value)}
                 />
               </div>
               <div className="flex flex-col text-sm mt-4">
-                <span className="font-semibold mb-0.5">Select Category</span>
+                <span className="font-semibold mb-0.5">Kategori Seçin</span>
                 <select
                   className="border h-8 text-sm px-2 outline-none"
-                  placeholder="Write a Title"
+                  placeholder="Bir Başlık Yazın"
                   onChange={(e) => setCategory(e.target.value)}
                 >
                   {categories.length > 0 && categories.map((category) => (
@@ -147,25 +148,25 @@ const AddProduct = ({ setIsProductModal }) => {
                 </select>
               </div>
               <div className="flex flex-col text-sm mt-4">
-                <span className="font-semibold mb-2">Prices</span>
-                {category === "pizza" ? (
+                <span className="font-semibold mb-2">Fiyatlar</span>
+                {category === "pizzalar" ? (
                   <div className="flex gap-1 justify-between md:flex-nowrap flex-wrap">
                   <input
                     type="number"
                     className="border-b-2 h-8 text-sm px-1 outline-none"
-                    placeholder="Small"
+                    placeholder="Küçük Boy"
                     onChange={(e) => changePrice(e, 0)}
                   />
                   <input
                     type="number"
                     className="border-b-2 h-8 text-sm px-1 outline-none"
-                    placeholder="Medium"
+                    placeholder="Orta Boy"
                     onChange={(e) => changePrice(e, 1)}
                   />
                   <input
                     type="number"
                     className="border-b-2 h-8 text-sm px-1 outline-none"
-                    placeholder="Large"
+                    placeholder="Büyük Boy"
                     onChange={(e) => changePrice(e, 2)}
                   />
                 </div>
@@ -182,12 +183,12 @@ const AddProduct = ({ setIsProductModal }) => {
               </div>
 
               <div className="flex flex-col text-sm mt-4">
-                <span className="font-semibold mb-2">Extra</span>
+                <span className="font-semibold mb-2">Ekstra</span>
                 <div className="flex gap-1 md:flex-nowrap flex-wrap">
                   <input
                     type="text"
                     className="border-b-2 h-8 text-sm px-1 outline-none"
-                    placeholder="Item"
+                    placeholder="Ekstra Ürün"
                     name="text"
                     onChange={(e) =>
                       setExtra({ ...extra, [e.target.name]: e.target.value })
@@ -196,7 +197,7 @@ const AddProduct = ({ setIsProductModal }) => {
                   <input
                     type="number"
                     className="border-b-2 h-8 text-sm px-1 outline-none"
-                    placeholder="Prices"
+                    placeholder="Fiyat"
                     name="price"
                     onChange={(e) =>
                       setExtra({ ...extra, [e.target.name]: e.target.value })
@@ -206,7 +207,7 @@ const AddProduct = ({ setIsProductModal }) => {
                     className="btn-primary ml-auto !text-secondary"
                     onClick={handleExtra}
                   >
-                    Add
+                    Ekle
                   </button>
                 </div>
                 <div className="mt-2 flex gap-2">
@@ -229,7 +230,7 @@ const AddProduct = ({ setIsProductModal }) => {
                 onClick={handleCreate}
                 className="btn-primary !bg-success  mt-3 text-xl font-semibold w-full"
               >
-                Create Add Product
+                Ürün Oluştur
               </button>
 
               <button
