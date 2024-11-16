@@ -78,7 +78,7 @@ const Register = () => {
   return (
     <div className='container mx-auto'>
         <form className='flex flex-col items-center my-16 md:w-1/2 w-full mx-auto' onSubmit={handleSubmit}>
-            <Title addClass="text-[40px] mb-6">Register</Title>
+            <Title addClass="text-[40px] mb-6">Üye Formu</Title>
             <div className='flex flex-col gap-y-2 w-full'>
                 {inputs.map((input)=>
                 <Input 
@@ -89,7 +89,7 @@ const Register = () => {
                 />
                 )}
                 <div className='flex flex-col w-full gap-y-2 mt-5'>
-                <button className="btn-primary hover:text-secondary" type='submit'>ÜYELİK FORMU</button>
+                <button className="btn-primary hover:text-secondary" type='submit'>ÜYE OL</button>
                 
                 <Link href="/login">
                 <span className='text-sm underline cursor-pointer text-secondary'>Hesabınız var mı?</span>

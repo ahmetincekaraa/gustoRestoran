@@ -17,7 +17,7 @@ const Carousel = () => {
             alt=""
             src="/images/hero-bg.jpg"
             layout="fill"
-           className="object-[8%] lg:object-cover"
+           className="object-center"
             objectFit="cover"
           />
         </div>

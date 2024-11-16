@@ -28,16 +28,17 @@ const Login = () => {
 
   useEffect(() => {
     const getUser = async () => {
+      if(!session) return;
       try {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`,{withCredentials: true,});
         setCurentUser(res.data?.find((user)=> user.email === session?.user?.email));
-        session && push("/profile/"+curentUser._id);
+        session && push("/profile/"+ curentUser._id);
       } catch (err) {
         console.log(err)
       }
     }
     getUser();
-  }, [session, push,curentUser])
+  }, [session, push, curentUser])
   
 
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
@@ -113,7 +114,7 @@ const Login = () => {
 export async function getServerSideProps({ req }) {
   const session = await getSession({ req });
 
-  const res = await axios.get(`${process?.env.NEXT_PUBLIC_API_URL}/users`);
+  const res = await axios.get(`${process?.env.NEXT_PUBLIC_API_URL}/users`,{withCredentials: true,});
   const user = res.data?.find((user) => user?.email === session?.user.email);
 
   if (session && user) {

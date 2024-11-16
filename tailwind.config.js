@@ -23,7 +23,7 @@ module.exports = {
       //#ffbe33  
       colors: {
         primary:"#009467",
-        secondary:"#222831",
+        secondary:"#222837",
         ired:"#CE2B37",
         danger:"red",
         success: "green",
@@ -31,6 +31,7 @@ module.exports = {
       },
       fontFamily:{
         dancing: ["Dancing Script", "cursive"],
+        lora: ["Lora Script", "cursive"],
         sans: ["Open Sans", "sans-serif"],
       }
     },

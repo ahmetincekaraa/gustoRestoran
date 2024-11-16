@@ -26,7 +26,7 @@ const Orders = () => {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`,{withCredentials: true,});
         setCurrentUsers(res.data.filter((user) => user.email === session.user.email)[0]);
       } catch (err) {
         console.log(err)

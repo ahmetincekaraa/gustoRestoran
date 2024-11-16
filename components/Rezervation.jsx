@@ -76,7 +76,7 @@ const Rezervation = () => {
     <div className="container mx-auto py-12">
       <div className="flex flex-wrap-reverse items-center gap-10">
         <form onSubmit={handleSubmit} className="lg:flex-1 w-full px-2">
-          <Title addClass="text-[40px] mb-10">Rezervasyon Formu</Title>
+          <Title addClass="text-[40px] mb-10 text-secondary">Rezervasyon Formu</Title>
           <div className="flex flex-col gap-y-3">
             {inputs.map((input) => (
               <Input
