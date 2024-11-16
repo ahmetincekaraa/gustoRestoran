@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { use } from "react";
+import React, { useEffect } from "react";
 
 import { useState } from "react";
 import Account from "../../../components/profile/Account";
@@ -23,7 +23,11 @@ const Profile = ({user}) => {
     }
   };
 
-  
+  useEffect(() => {
+    if (!session) {
+      push("/login");
+    }
+  }, [session, push]);
 
   return (
     <div className="flex px-10 min-h-[calc(100vh_-_425px)] lg:flex-row flex-col">
@@ -93,7 +97,7 @@ export async function getServerSideProps({req, params}) {
       },
     };
   }
-  const user = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/${params.id}`,{withCredentials: true,})
+  const user = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/${params.id}`)
 
 
   return{

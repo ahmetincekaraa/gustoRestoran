@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 const Login = () => {
  const {data: session} = useSession();
   const { push } = useRouter();
-  const [curentUser, setCurentUser] = useState()
+  const [currentUser, setCurrentUser] = useState()
 
   const onSubmit = async (values, actions) => {
     const { email, password } = values;
@@ -28,17 +28,18 @@ const Login = () => {
 
   useEffect(() => {
     const getUser = async () => {
-      if(!session) return;
       try {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`,{withCredentials: true,});
-        setCurentUser(res.data?.find((user)=> user.email === session?.user?.email));
-        session && push("/profile/"+ curentUser._id);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
+        setCurrentUser(
+          res.data?.find((user) => user.email === session?.user?.email)
+        );
+        session && push("/profile/" + currentUser?._id);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-    }
+    };
     getUser();
-  }, [session, push, curentUser])
+  }, [session, push, currentUser]);
   
 
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
@@ -114,7 +115,7 @@ const Login = () => {
 export async function getServerSideProps({ req }) {
   const session = await getSession({ req });
 
-  const res = await axios.get(`${process?.env.NEXT_PUBLIC_API_URL}/users`,{withCredentials: true,});
+  const res = await axios.get(`${process?.env.NEXT_PUBLIC_API_URL}/users`);
   const user = res.data?.find((user) => user?.email === session?.user.email);
 
   if (session && user) {
