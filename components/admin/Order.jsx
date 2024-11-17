@@ -83,7 +83,7 @@ const Order = () => {
                   {status[order?.status]}
                   </td>
                   <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-primary transition-all">
-                    <button className='btn-primary hover:text-primary !bg-success' onClick={() => handleStatus(order?._id)} disabled={order?.status > 1}>Next Stage</button>
+                    <button className='btn-primary hover:text-primary !bg-success' onClick={() => handleStatus(order?._id)} disabled={order?.status > 1}>Sıradaki Durum</button>
                   </td>
                 </tr>
                 ))}

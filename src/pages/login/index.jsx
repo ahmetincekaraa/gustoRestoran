@@ -11,6 +11,9 @@ import { useEffect, useState } from "react";
 
 const Login = () => {
  const {data: session} = useSession();
+ const [showPassword, setShowPassword] = useState(false);
+ const handleTogglePassword = () => setShowPassword((prev) => !prev);
+ const handleToggleConfirmPassword = () => setShowConfirmPassword((prev) => !prev);
   const { push } = useRouter();
   const [currentUser, setCurrentUser] = useState()
 
@@ -65,11 +68,20 @@ const Login = () => {
     {
       id: 2,
       name: "password",
-      type: "password",
+      type: showPassword ? 'text' : 'password',
       placeholder: "Şifre",
       value: values.password,
       errorMessage: errors.password,
       touched: touched.password,
+      icon: (
+        <span onClick={handleTogglePassword} className="cursor-pointer text-sm">
+  {showPassword  ? (
+    <i className="fa fa-eye"></i>
+  ) : (
+    <i className="fa fa-eye-slash"></i>
+  )}
+</span>
+      ),
     },
   ];
   return (

@@ -7,10 +7,14 @@ import Link from "next/link";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 
 const Login = () => {
   const { push } = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
+  const handleTogglePassword = () => setShowPassword((prev) => !prev);
+  const handleToggleConfirmPassword = () => setShowConfirmPassword((prev) => !prev);
   const onSubmit = async (values, actions) => {
     try {
       const res = await axios?.post(
@@ -52,11 +56,20 @@ const Login = () => {
     {
       id: 2,
       name: "password",
-      type: "password",
+      type: showPassword ? 'text' : 'password',
       placeholder: "Şifreniz..",
       value: values.password,
       errorMessage: errors.password,
       touched: touched.password,
+      icon: (
+        <span onClick={handleTogglePassword} className="cursor-pointer text-sm">
+  {showPassword  ? (
+    <i className="fa fa-eye"></i>
+  ) : (
+    <i className="fa fa-eye-slash"></i>
+  )}
+</span>
+      ),
     },
   ];
   return (
