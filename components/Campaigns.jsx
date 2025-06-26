@@ -29,9 +29,9 @@ const CampaignsItem2 = () => {
             <div className='relative md:w-44 md:h-44 w-36 h-36 after:content-[""]  border-[5px] border-primary rounded-full overflow-hidden'>
                 <Image src="/images/k2.jpg" alt='' layout='fill' className='hover:scale-110 transition-all duration-300' objectFit='cover' priority/>
                 </div>
-                <div className='text-iwhite'>
+                <div className='text-iwhite font-Lora'>
                     <Title addClass="text-2xl">Salata Çeşitlerinde</Title>
-                    <div className='font-lora my-1'>
+                    <div className='font-Lora my-1'>
                         <span className='text-[40px] '>10% </span>
                         <span className='text-lg'>İndirim</span>
                     </div>

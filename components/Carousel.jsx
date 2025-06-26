@@ -43,9 +43,9 @@ const Carousel = () => {
           <SwiperSlide style={{ maxHeight: "920px" }} className="swiper-slide">
             <div className="">
               
-                <div className=" text-iwhite top-20 flex flex-col items-start gap-y-10 container mx-auto">
-                  <Title addClass="text-5xl text-primary">İtalyan Konsept Restoran</Title>
-                  <p className="text-sm sm:w-2/5 w-full font-semibold text-[#8ed2c2]">
+                <div className=" text-iwhite top-20 flex flex-col items-start gap-y-10 container mx-auto font-Lora">
+                  <Title addClass="text-5xl text-primary ">İtalyan Konsept Restoran</Title>
+                  <p className="text-sm sm:w-2/5 w-full font-Lora text-[#8ed2c2]">
                   İtalyan konseptli restoranımızın menü çeşitliliği size avantaj sağlar. Keyifli ambiyansımız ve birbirinden lezzetli yiyeceklerimizin birleşimiyle restoranımız size hizmet vermektedir.
                   </p>                  
                 </div>

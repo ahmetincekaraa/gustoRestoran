@@ -19,7 +19,7 @@ const MenuWrapper = ({ categoryList, productList }) => {
   return (
     <div className="container mx-auto mb-16">
       <div className="flex flex-col items-center w-full">
-        <Title addClass="text-[40px]">Menü</Title>
+        <Title addClass="text-[40px] font-lora">Menü</Title>
         <div className="mt-10">
           {categoryList &&
             categoryList.map((category, index) => (
