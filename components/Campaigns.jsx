@@ -6,38 +6,51 @@ import { FaShoppingCart } from "react-icons/fa";
 
 const CampaignsItem1 = () => {
     return (
-        <div className='bg-[#01281f] flex-1 rounded-md py-5 px-[15px] flex items-center gap-x-4'>
-            <div className='relative md:w-44 md:h-44 w-36 h-36 after:content-[""]  border-[5px] border-primary rounded-full overflow-hidden'>
-                <Image src="/images/k1.jpg" alt='' layout='fill' className='hover:scale-110 transition-all duration-300' objectFit='cover' priority/>
+        <div className='bg-[#004A7C] flex-1 rounded-md py-5 px-[15px] flex items-center gap-x-4'>
+            <div className='relative md:w-44 md:h-32 w-48 h-36 after:content-[""] rounded overflow-hidden'>
+                
+                <Image src="/images/c1.png" alt='' fill className='hover:scale-110 transition-all duration-300' objectFit='cover' priority/>
                 </div>
                 <div className='text-iwhite'>
-                    <Title addClass="text-2xl">Pizza Çeşitlerinde</Title>
+                    <Title addClass="text-2xl">Basit Kullanım</Title>
                     <div className='font-Lora my-1'>
-                        <span className='text-[40px] '>15% </span>
-                        <span className='text-lg'>İndirim</span>
+                        <span className='text-lg'>Kolay ve Profesyonel İşlemler</span>
                     </div>
-                    <a href="menu">
-                    <button className='btn-primary flex items-center gap-x-2 !text-iwhite'> Sipariş<FaShoppingCart size={20}/></button>
-                    </a>
+                    
                 </div>
         </div>
     )
 }
 const CampaignsItem2 = () => {
     return (
-        <div className='bg-[#01281f] flex-1 rounded-md py-5 px-[15px] flex items-center gap-x-4 '>
-            <div className='relative md:w-44 md:h-44 w-36 h-36 after:content-[""]  border-[5px] border-primary rounded-full overflow-hidden'>
-                <Image src="/images/k2.jpg" alt='' layout='fill' className='hover:scale-110 transition-all duration-300' objectFit='cover' priority/>
+        <div className='bg-[#004A7C] flex-1 rounded-md py-5 px-[15px] flex items-center gap-x-4'>
+            <div className='relative md:w-44 md:h-32 w-48 h-36 after:content-[""] rounded overflow-hidden'>
+                
+                <Image src="/images/c2.png" alt='' fill className='hover:scale-110 transition-all duration-300' objectFit='cover' priority/>
                 </div>
-                <div className='text-iwhite font-Lora'>
-                    <Title addClass="text-2xl">Salata Çeşitlerinde</Title>
+                <div className='text-iwhite'>
+                    <Title addClass="text-2xl">Finans Takibi</Title>
                     <div className='font-Lora my-1'>
-                        <span className='text-[40px] '>10% </span>
-                        <span className='text-lg'>İndirim</span>
+                        <span className='text-lg'>Harcamalarınızın Takibini Yapın</span>
                     </div>
-                    <a href="menu">
-                    <button className='btn-primary flex items-center gap-x-2 !text-iwhite'> Sipariş <FaShoppingCart size={20}/></button>
-                    </a>
+                    
+                </div>
+        </div>
+    )
+}
+
+const CampaignsItem3 = () => {
+    return (
+        <div className='bg-[#004A7C] flex-1 rounded-md py-5 px-[15px] flex items-center gap-x-4'>
+            <div className='relative md:w-44 md:h-32 w-48 h-36 after:content-[""] rounded overflow-hidden'>
+                
+                <Image src="/images/c3...png" alt='' fill className='hover:scale-110 transition-all duration-300' objectFit='cover' priority/>
+                </div>
+                <div className='text-iwhite'>
+                    <Title addClass="text-2xl">Bütçenizi Büyütün</Title>
+                    <div className='font-Lora my-1'>
+                        <span className='text-lg'>Mantıklı Yatırımlar ve Birikimlerle Bütçenizi Genişletin</span>
+                    </div>
                     
                 </div>
         </div>
@@ -49,6 +62,7 @@ const Campaigns = () => {
     <div className='flex justify-between container mx-auto pb-20 gap-6 flex-wrap'>
         <CampaignsItem1/>
         <CampaignsItem2/>
+        <CampaignsItem3/>
     </div>
   )
 }

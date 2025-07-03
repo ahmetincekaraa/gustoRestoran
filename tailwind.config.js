@@ -22,9 +22,9 @@ module.exports = {
       },
       //#ffbe33  
       colors: {
-        primary:"#009467",
+        primary:"#58D900",
         secondary:"#222837",
-        ired:"#CE2B37",
+        ired:"#FFC300",
         danger:"red",
         success: "green",
         iwhite: "#F4F5F0"

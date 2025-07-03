@@ -20,25 +20,27 @@ const Header = () => {
   return (
     <div
       className={`h-[5.5rem] z-50 relative w-full ${
-        router.asPath === "/" ? "bg-transparent" : "bg-[#01281f] !fixed"
+        router.asPath === "/" ? "bg-transparent" : "bg-[#004A7C] !fixed"
       }`}
     >
       <div className="container mx-auto text-iwhite flex justify-between items-center h-full px-1.5">
+        {/* Logo */}
         <Logo />
 
+        {/* Responsive  Menü Modeli */}
         <nav
           className={`sm:static absolute top-0 left-0 grid place-content-center sm:w-auto sm:h-auto w-full h-screen sm:text-iwhite text-black sm:bg-transparent bg-gray-300 z-50 ${
             isMenuModal ? "block" : "hidden"
           } sm:block`}
         >
-          <ul className="flex gap-x-2 sm:flex-row flex-col items-center">
+          <ul className="flex gap-x-2  sm:flex-row flex-col items-center">
             <li
               className={`px-[0.313rem] py-[0.9rem] uppercase hover:text-ired cursor-pointer transition-all ${
                 router.asPath === "/" && "text-primary"
               }`}
             >
               <Link onClick={() => setIsMenuModal(false)} href="/">
-                Anasayfa
+                HOME
               </Link>
             </li>
             <li
@@ -46,26 +48,17 @@ const Header = () => {
                 router.asPath === "/menu" && "text-primary"
               }`}
             >
-              <Link onClick={() => setIsMenuModal(false)} href="/menu">
-                Menü
+              <Link onClick={() => setIsMenuModal(false)} href="/Campains">
+                FEATURES
               </Link>
             </li>
             <li
-              className={`px-[0.313rem] py-[0.9rem] uppercase hover:text-ired cursor-pointer transition-all ${
+              className={`px-[0.313rem] py-[0.9rem] uppercase hover:text-ired cursor-pointer transition-all sm:mr-6 ${
                 router.asPath === "/about" && "text-primary"
               }`}
             >
               <Link onClick={() => setIsMenuModal(false)} href="/about">
-                Hakkımızda
-              </Link>
-            </li>
-            <li
-              className={`px-[0.313rem] py-[0.9rem] uppercase hover:text-ired cursor-pointer transition-all ${
-                router.asPath === "/rezervation" && "text-primary"
-              }`}
-            >
-              <Link onClick={() => setIsMenuModal(false)} href="/rezervation">
-                Rezervasyon
+                ABOUT
               </Link>
             </li>
           </ul>
@@ -81,6 +74,9 @@ const Header = () => {
             </button>
           )}
         </nav>
+
+        {/* Kullanıcı işlemleri ve İletişim Butonu */}
+
         <div className="flex gap-x-4 items-center">
           <Link href="/login">
             <FaUserAlt
@@ -104,10 +100,18 @@ const Header = () => {
             </span>
           </Link>
           <button onClick={() => setIsSearchModal(true)}>
-            <FaSearch className="hover:text-ired transition-all" size={18} />
+            <FaSearch
+              className="hover:text-ired transition-all mr-10"
+              size={18}
+            />
           </button>
-          <a href='menu' className="md:inline-block hidden">
-            <button className="btn-primary hover:bg-ired">Sipariş Ver</button>
+          <a
+            href="rezervation"
+            className="md:inline-block md:text-[13px] sm:text-[11px] lg:text-sm hidden"
+          >
+            <button className="btn-primary font-semibold hover:bg-primary hover:text-[#15496cf3]">
+              CONTACT US
+            </button>
           </a>
           <button
             onClick={() => setIsMenuModal(true)}

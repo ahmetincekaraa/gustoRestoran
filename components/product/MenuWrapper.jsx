@@ -7,15 +7,7 @@ const MenuWrapper = ({ categoryList, productList }) => {
   const [filter, setFilter] = useState([]);
   const [productLimit, setProductLimit] = useState(3);
 
-  useEffect(() => {
-    setFilter(
-      productList.filter(
-        (product) =>
-          product.category === categoryList[active].title.toLowerCase()
-      )
-    );
-  }, [categoryList, productList, active]);
-
+ 
   return (
     <div className="container mx-auto mb-16">
       <div className="flex flex-col items-center w-full">

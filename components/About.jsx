@@ -5,7 +5,7 @@ import Logo from './ui/Logo'
 
 const About = () => {
   return (
-    <div className="bg-[#01281f] py-14">
+    <div className="bg-[#004A7C] py-14">
       <div className="container mx-auto flex items-center text-iwhite gap-20 justify-center flex-wrap-reverse">
         <div className="flex justify-center">
           <div className="relative sm:w-[445px] sm:h-[600px] flex justify-center w-[300px] h-[450px]">
