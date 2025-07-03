@@ -43,7 +43,6 @@ const CampaignsItem3 = () => {
     return (
         <div className='bg-[#004A7C] flex-1 rounded-md py-5 px-[15px] flex items-center gap-x-4'>
             <div className='relative md:w-44 md:h-32 w-48 h-36 after:content-[""] rounded overflow-hidden'>
-                
                 <Image src="/images/c3...png" alt='' fill className='hover:scale-110 transition-all duration-300' objectFit='cover' priority/>
                 </div>
                 <div className='text-iwhite'>

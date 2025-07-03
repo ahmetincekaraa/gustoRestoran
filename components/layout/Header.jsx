@@ -86,19 +86,6 @@ const Header = () => {
               size={18}
             />
           </Link>
-          <Link href="/cart">
-            <span className="relative group">
-              <FaCartShopping
-                className={`hover:text-ired transition-all group-hover:text-ired ${
-                  router.asPath === "/cart" && "text-primary"
-                }`}
-                size={18}
-              />
-              <span className="w-4 h-4 text-xs grid place-content-center rounded-full bg-primary text-secondary absolute -top-3 -right-2 group-hover:bg-ired group font-semibold">
-                {cart.products.length === 0 ? "0" : cart.products.length}
-              </span>
-            </span>
-          </Link>
           <button onClick={() => setIsSearchModal(true)}>
             <FaSearch
               className="hover:text-ired transition-all mr-10"
