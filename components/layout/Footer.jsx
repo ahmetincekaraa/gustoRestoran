@@ -20,7 +20,7 @@ const Footer = () => {
 
 
   return (
-    <div className="bg-[#01281f] text-iwhite ">
+    <div className="bg-[#004A7C] text-iwhite ">
       <div className="container mx-auto pt-16 pb-6">
   <div className="flex flex-col md:flex-row md:justify-between justify-center text-center flex-wrap md:gap-y-0 gap-y-7">
     {/* Bize Ulaşın Bölümü */}
@@ -50,7 +50,7 @@ const Footer = () => {
         {footer?.socialMedia?.map((item) => (
           <a
             href={item?.link}
-            className="w-7 h-7 grid place-content-center bg-ired text-[#01281f] rounded-full hover:text-secondary hover:bg-primary"
+            className="w-7 h-7 grid place-content-center bg-ired text-[#004A7C] rounded-full hover:text-secondary hover:bg-primary"
             key={item._id}
             target="_blank"
           >
