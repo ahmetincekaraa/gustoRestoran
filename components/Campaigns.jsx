@@ -31,7 +31,7 @@ const CampaignsItem2 = () => {
                 </div>
                 <div className='text-iwhite'>
                     <Title addClass="text-2xl">Salata Çeşitlerinde</Title>
-                    <div className='font-lora my-1'>
+                    <div className='font-Lora my-1'>
                         <span className='text-[40px] '>10% </span>
                         <span className='text-lg'>İndirim</span>
                     </div>

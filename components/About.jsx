@@ -13,7 +13,7 @@ const About = () => {
           </div>
         </div>
         <div className="md:w-1/2 ">
-          <Title addClass="text-[33px] !font-lora text-primary flex items-center gap-x-2"><Logo/> <span className='ml-1 text-[27px] sm:text-[22px] md:text-[30px] lg:text-[33px]'> İtalyan Restoran</span></Title>
+          <Title addClass="text-[33px] !font-Lora text-primary flex items-center gap-x-2"><Logo/> <span className='ml-1 text-[27px] sm:text-[22px] md:text-[30px] lg:text-[33px]'> İtalyan Restoran</span></Title>
           <p className="my-5 flex flex-col items-center text-primary indent-4">
           İtalya’nın eşsiz mutfağını ve samimi atmosferini şehrin kalbine taşıyan bir restorandır. Her tabakta İtalyan geleneğini, tazeliği ve özeni sunmayı amaçlıyoruz. Özenle seçilen malzemelerle hazırlanan lezzetlerimizde, klasik tariflere modern bir dokunuş katıyoruz. <br />
 </p>
